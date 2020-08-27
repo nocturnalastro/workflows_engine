@@ -6,6 +6,10 @@ cd workflows
 pip install . --user
 ```
 
+## Virtual environments
+
+if you wish to use a virtual environment then simply add the equitant to `pipenv --python 3.7; pipenv shell` before the pip install and remove the `--user`.
+
 # Docs
 
 ## Building
@@ -15,7 +19,7 @@ pip install . --user
 To build the documentation
 
 ```bash
-pip install sphinx recommonmark --user
+pip install .[doc] --user
 cd docs
 make html
 ```
