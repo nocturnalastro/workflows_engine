@@ -13,6 +13,26 @@ __all__ = (
     "Image",
 )
 
+class Translatable:
+
+    _translator = lambda x: x
+
+    def __get__(self, inst, cls):
+        if isinstance(self.value, str)
+            return self._translator(self.value)
+        else:
+            return self.value
+
+    def __set__(self, inst, value):
+        self.value = value
+
+
+from odoo.translate import _
+from workflows_engine import Translatable
+
+Translatable._translator = _
+
+
 
 class Component:
     __slots__ = [
@@ -85,9 +105,10 @@ class Component:
 
 class Message(Component):
     __slots__ = [
-        "template",
         "message_type",
     ]
+
+    template = Translatable()
 
     def __init__(self, template, message_type, **kwargs):
         super().__init__(**kwargs)
@@ -102,7 +123,6 @@ class Input(Component):
     __slots__ = [
         "component_type",
         "target",
-        "label",
         "input_key",
         "input_ref",
         "output_ref",
@@ -110,6 +130,8 @@ class Input(Component):
         "obscure",
         "validators",
     ]
+
+    label = Translatable()
 
     def __init__(
         self,
