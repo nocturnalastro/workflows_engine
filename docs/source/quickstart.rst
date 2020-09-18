@@ -37,8 +37,8 @@ Produces the output:
         "components": {
             "HelloWorldMessage": {
                 "type": "message_box",
-                "msg_template": "HelloWorld",
-                "msg_type": "info"
+                "message_template": "HelloWorld",
+                "message_type": "info"
             }
         },
         "flow": {
@@ -55,7 +55,7 @@ Produces the output:
                             }
                         ]
                     ],
-                    "status_msg": {
+                    "status_message": {
                         "type": "success",
                         "template": null
                     }
